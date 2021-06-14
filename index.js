@@ -11,8 +11,6 @@ canvas.style.border = "2px solid black"; //border
 let bg = new Image();
 bg.src = "./images/bg.png";
 
-console.log(bg);
-
 let fg = new Image();
 fg.src = "./images/fg.png"; //1024 width
 
@@ -106,21 +104,7 @@ function animate() {
   ctx.fillText(`Score: ${score}`, 20, canvas.height - 20);
 
 
-/*
-  class FalingCandie{   // create class for the candy types  of the falling candy  //explosions extends this class to animate explosion
-    constructor( x, y, color )
-    this.x = x
-    this.y = y
-    this.color = color 
 
-    color = Math.random()*360 
-
-    if (candies[i].y > canvas.height){
-
-    }
-
-  }
-*/
 
 
 function girlCatching(){ 

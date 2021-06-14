@@ -38,6 +38,10 @@ let isMovingLeft = false;
 let isMovingRight = false;
 let girlPosRight = 0, girlPosDown = 599; // GIRL base position  START POSTITION
 let candiesPosY = 0;
+let audioGameStart = new Audio('Kim Lightyear - Find Me In The Dark (Without Drums Version).mp3');
+let audioGamePlay = new Audio('Kim Lightyear - Find Me In The Dark (Without Drums Version).mp3');
+let audioGameEnd = new Audio('Kim Lightyear - Find Me In The Dark (Without Drums Version).mp3');
+
 
 let candies = [       // falling candies CANDIES ARRAY
   { x: Math.random()*canvas.width, y: Math.random()*canvas.height},
@@ -54,12 +58,17 @@ let candies = [       // falling candies CANDIES ARRAY
 function start(){
     restartBtn.style.display = 'none'
     console.log(`${isgameOver}`);
+    audioGameStart.play();
     animate()
-    //startAudio.play()
-
+    
 }
 
-//PLAY AUDIO
+//AUDIO 
+function playAudio(){
+  audioGameStart.play();
+}
+
+//DRAW
 function bgVisual(){
     ctx.drawImage(bg, 0, 0); // static bg
     console.log('drawing bg');
@@ -159,18 +168,20 @@ function gameOver(){
         cancelAnimationFrame(intervalId);
         restartBtn.style.display = 'none' // hidding the restart until users is game over 
         console.log('Game Ended');
-        isGameOver = 
+        isGameOver = true
+        
       } 
       else {
         intervalId = requestAnimationFrame(animate); //HANDLING ANIMATION
         //60 frames a second calling the animate/draw function above
         startBtn.style.display = 'none'  // hides the START BUTTON
         console.log('Game Still Going');
+        isGameOver = false
       }    
  
     console.log(`${isgameOver}`);
-
     return isGameOver
+    
 }
 
 
