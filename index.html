@@ -5,29 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- connecting your CSS files -->
+    <link href="style.css" rel="stylesheet">
     <!-- connecting your FONT files -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <title>Candy Cathcer Game </title>
 </head>
 
-<body bgcolor="E999DA">
-    <center>
-    <div id="gameplay_div">
-     <canvas id="gamecanvas" width="1024" height="768"></canvas>
+<body>
+
+    <div>
+        <h1 class="rainbowtext"> Welcome to Candy Cacther</h1><br>
+
+        <span>
+            <canvas id="gamecanvas" width="1024" height="768"></canvas>
     </div>
-    <div id="buttons">
-    <button id="start">Start Game</button>
-    <button id="restart">Restart Game</button>
-    <button id="soundon">Sound On/Off</button>
-    <audio controls>
+    <span id="buttons">
+        <button id="start" class="inverse">Start Game</button>
+        <button id="restart" class="rainbowtextbuttton">Restart Game</button>
+        <button id="soundon" class="myButton">Sound On/Off</button>
+    </span>
+    <!-- <audio controls>
         <source src="/music/Kim Lightyear - Find Me In The Dark (Without Drums Version).mp3" type="audio/ogg">
         <source src="/music/Kim Lightyear - Find Me In The Dark (Without Drums Version).mp3" type="audio/mpeg">
-    </audio>
+    </audio>-->
+    <span>
+        <p class="ptext">
+            Candylina needs your help! <br>
+            She is stuck in Candy World The only way out it through the passage in the Bridge of
+            Trolls. <br>
+            In order to get back home she must pay a candy toll to the evil trolls. <br>
+            She needs catch as many candies as she can, by moving the left & right arrow key. <br>
+            Hopefully with enough candies she make it back home.<br>
+            Good Luck!<br>
+            
+        </p>
+        <img src="/images/LeftArrow.png"> &nbsp;&nbsp;<img src="/images/RightArrow.png">
+    </span>
     </div>
-    </center>
-        
     <script src="index.js"></script>
+    <!-- <script src="script.js"></script>  -->
 </body>
 
 </html>
