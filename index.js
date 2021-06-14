@@ -135,7 +135,7 @@ function girlCatching(){
     score += 10;
     // speed of the candies falling  will increase
     candiesSpeed+=5;
-    console.log('Scoring');
+    console.log('Cathching Scoring');
     girlCatching();
     return score
 
@@ -169,7 +169,7 @@ window.addEventListener("load", () => {
  
   
   startBtn.style.display = 'none' // showing no game canvas
-  restartBtn.style.display = 'none' // hidding the restart until users is game over 
+  
   
   startBtn.addEventListener('click', () => {
     // reset the values 
