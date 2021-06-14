@@ -11,8 +11,6 @@ canvas.style.border = "2px solid black"; //border
 let bg = new Image();
 bg.src = "./images/bg.png";
 
-console.log(bg);
-
 let fg = new Image();
 fg.src = "./images/fg.png"; //1024 width
 
@@ -106,21 +104,7 @@ function animate() {
   ctx.fillText(`Score: ${score}`, 20, canvas.height - 20);
 
 
-/*
-  class FalingCandie{   // create class for the candy types  of the falling candy  //explosions extends this class to animate explosion
-    constructor( x, y, color )
-    this.x = x
-    this.y = y
-    this.color = color 
 
-    color = Math.random()*360 
-
-    if (candies[i].y > canvas.height){
-
-    }
-
-  }
-*/
 
 
 function girlCatching(){ 
@@ -135,7 +119,7 @@ function girlCatching(){
     score += 10;
     // speed of the candies falling  will increase
     candiesSpeed+=5;
-    console.log('Scoring');
+    console.log('Cathching Scoring');
     girlCatching();
     return score
 
@@ -169,7 +153,7 @@ window.addEventListener("load", () => {
  
   
   startBtn.style.display = 'none' // showing no game canvas
-  restartBtn.style.display = 'none' // hidding the restart until users is game over 
+  
   
   startBtn.addEventListener('click', () => {
     // reset the values 
