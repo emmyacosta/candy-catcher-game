@@ -13,17 +13,18 @@ bg.src = "./images/bg.png";
 let fg = new Image();
 fg.src = "./images/fg.png"; //1024 width
 
-let girl = new Image();
-girl.src = "./images/girl.png"; // GIRL 100x109
-
 let candiesBlue = new Image();
 candiesBlue.src = "./images/bluecandyheart.png"; //candies 70x70
+
+let candiesPink = new Image();
+candiesPink.src = "./images/pinkcandystar.png"; // candies images  70x70
+
+let girl = new Image();
+girl.src = "./images/girl.png"; // GIRL 100x109
 
 //let candiesSpin = new Image();
 //candiesSpin.src = "images/spin_rb_candy.gif"; //candies 70x70
 
-let candiesPink = new Image();
-candiesPink.src = "./images/pinkcandystar.png"; // candies images  70x70
 
 const floorHieght = 708;
 let intervalId = 0;
@@ -42,10 +43,14 @@ let candies = [       // falling candies CANDIES ARRAY
 ];
 let candiesPosY = 0;
 
-function girlCatching(){ 
+function girlCatching(score, ){ 
   //We have candies falling down ( x,  DOWN) to the bottom of the screen to reach the floor 
 
-    if (candies.x == girlPosDown) {
+    if ((candies.x + candies.width) >= girl.x &&
+    candies.x <=  girl.width &&
+    (candies.y+candies.height) >= girl.y &&
+    candies.y<= girl.y+girl.height)
+  {
     // if the candie in the array of candies 
     // is between the girl postion
     // the score will increase
@@ -81,7 +86,6 @@ function animate() {
   // getting called 60 per sec with the JS builtin function    ANIMATION
   ctx.drawImage(bg, 0, 0); // static bg
 
-  ctx.drawImage(girl, girlPosRight, girlPosDown); //girl start pos RIGHT 0  DOWN 599
 
    
 
@@ -108,6 +112,7 @@ function animate() {
   }
 
 
+  ctx.drawImage(girl, girlPosRight, girlPosDown); //girl start pos RIGHT 0  DOWN 599
 
 
 
