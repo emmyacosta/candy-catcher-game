@@ -23,10 +23,8 @@ candiesPink.src = "./images/pinkcandystar.png"; // candies images  70x70
 let girl = new Image();
 girl.src = "./images/girl.png"; // GIRL 100x109
 
-
-
-
-
+//let candiesSpin = new Image();
+//candiesSpin.src = "images/spin_rb_candy.gif"; //candies 70x70
 
 const floorHieght = 708;
 let intervalId = 0;
@@ -36,8 +34,8 @@ let candiesSpeed = 0;
 let candyCatch = 0;
 let isMovingLeft = false;
 let isMovingRight = false;
-let girlPosRight = 0, girlPosDown = 599; // GIRL base position  START POSTITION
-let playAudio = false;
+let girlPosRight = 0,
+  girlPosDown = 599; // GIRL base position  START POSTITION
 
 let candies = [
   // falling candies CANDIES ARRAY
@@ -56,7 +54,6 @@ let candies = [
   
 ];
 
-//let candiesPosY = 0;
 
 function girlCatching() {
   console.log("Get score");
@@ -137,7 +134,7 @@ function animate() {
   ctx.font = "22px Pacifico";
   ctx.fillText(`Score: ${score}`, 20, canvas.height - 20);
 
-  
+
   gameOver() 
 
   //60 FRAMES ANIMATION IF GAME IS IN PLAY  _ DONT MOVE THIS _ not sure why?  cant i put this in a function? HALP!!!
@@ -154,10 +151,6 @@ function animate() {
 
 function gameOver(bg) {
   if (isGameOver) {
-
-  ctx.font = "82px Pacifico";
-  ctx.fillText(`Game Over!!!`);
-
     isGameOver == true;
     startBtn.style.display = "none"; // NO start buttong
     console.log("isgameOver");
@@ -169,10 +162,6 @@ function gameOver(bg) {
 window.addEventListener("load", () => {
   animate();
   girlMoving();
-
-  //let candiesSpin = new Image();
-//candiesSpin.src = "images/spin_rb_candy.gif"; //candies 70x70
-let audio = new Audio("/music/Kim Lightyear - Find Me In The Dark (Without Drums Version).mp3" ) ;
 
   startBtn.style.display = "none"; // showing no game canvas
 
@@ -207,9 +196,6 @@ let audio = new Audio("/music/Kim Lightyear - Find Me In The Dark (Without Drums
     });
 
   }
-
-  
-  
 
   document.addEventListener("keyup", () => {
     isMovingRight = false;
