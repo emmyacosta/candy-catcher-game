@@ -77,28 +77,7 @@ function bgVisual(){
 }
 
 //CANDIES FALLING
-function candiesFalling(){
-  for (let i = 0; i < candies.length; i++) {
-      ctx.drawImage(candiesBlue,candies[i].x, candies[i].y);
-       // ctx.drawImage(candiesSpin,candies[i].x, candies[i].y);  GIF NOT ANIMATING 
-      ctx.drawImage(candiesPink, candies[i].x, candies[i].y );
-        candiesSpeed =  candies[i].y += 1; // SPEED :)
-    
-        if (candies[i].y > canvas.height) {
-            candies[i] = {
-                x: Math.random()*canvas.width,
-                y: Math.random()*canvas.hieght
-            }
-          
-          if(candies[i].x < canvas.width){ 
-            candies[i] = {
-              x: Math.random()*canvas.width,
-              y: Math.random()*canvas.width
-            } 
-          }
-      }
-  }
-  console.log('Candies falling')
+
 
   
 }

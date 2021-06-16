@@ -6,6 +6,7 @@ let restartBtn = document.querySelector("#restart");
 let startPage = document.querySelector("#splashscreen-page"); //START SPLASH SCREEN
 let gamePage = document.querySelector("#gameplay-page"); //CANVAS DIV
 let gameOverPage = document.querySelector("#game-over-page"); //END PAGE
+let finalScore = document.querySelector('#scoredisplay')
 
 let ctx = canvas.getContext("2d");
 
@@ -28,25 +29,30 @@ candiesPink.src = "./images/pinkcandystar.png"; // candies images  70x70
 let girl = new Image();
 girl.src = "./images/girl.png"; // GIRL 100x109
 
-//let candiesSpin = new Image();
-//candiesSpin.src = "images/spin_rb_candy.gif"; //candies 70x70
+//let candieBottle = new Image();
+//candiesBottle.src = "images/"; //candies 70x70
 
 //_______________________SOUND EFX VARIABLES______________________________________
 
 let catchingSoundEFX = new Audio()
 catchingSoundEFX.src = './music/zapsplat_cartoon_imoact_hollow_plonk_003_50050.mp3'
+catchingSoundEFX.volume = 0.3
 
 let runSoundEFX = new Audio()
 runSoundEFX.src = './music/zapsplat_cartoon_walking_care_free_happy_musical_002_18140.mp3'
+runSoundEFX.volume = 0.03
 
 let dropSoundEFX = new Audio()
 dropSoundEFX.src = './music/zapsplat_cartoon_imoact_hollow_plonk_003_50050.mp3'
+dropSoundEFX.volume = 0.3
 
 let startSoundEFX = new Audio()
 startSoundEFX.src = './music/human_voice_girl_2_years_says_yumyums.mp3'
+startSoundEFX.volume = 0.2
 
 let restartSoundEFX = new Audio()
 restartSoundEFX.src = './music/zapsplat_human_child_girl_11_years_says_yay_001_19775.mp3'
+restartSoundEFX.volume = 0.2
 
 
 //_______________________VARIABLES______________________________________
@@ -90,15 +96,12 @@ function girlCatching() {
     if (
       candies[i].y + candies[i].height >= girl.y &&
       candies[i].x + candies[i].width < girlPosRight + girl.width &&
-      candies[i].x > girlPosRight 
-    ) {
-      // console.log("Get points 2");
+      candies[i].x > girlPosRight) {
+      catchingSoundEFX.play()
       score += 10;
       candies[i].y = 2000;
       candies[i].x = 2000;
       //candiesSpeed = candies[i].y += 5
-    } else if (candies[i].x > floorHieght) {
-      isGameOver == true;
     }
   }
 }
@@ -118,6 +121,7 @@ function musicPlay() {
 function start() {
   startPage.style.display = "none";
   gameOverPage.style.display = "none";
+  gamePage.style.display = 'block'
   isGameOver = false;
 }
 
@@ -142,22 +146,25 @@ function animate() {
 
   //_______________________CANDIES FALLING_____________________________________
   for (let i = 0; i < candies.length; i++) {
-    //ctx.drawImage(candiesBlue,candies[2].x + Math.random()*1024, candies[i].y );
-    //ctx.drawImage(candiesSpin,candies[i].x, candies[i].y);  //GIF NOT ANIMATING
+    let gap = Math.random() + 300
+     
+    ctx.drawImage(candiesBlue,candies[i].x + gap , candies[i].y );
     ctx.drawImage(candiesPink, candies[i].x, candies[i].y);
+    //ctx.drawImage(candiesBottle,candies[i].x + gap , candies[i].y );
+    //ctx.drawImage(candiesBottle2,candies[i].x + gap , candies[i].y );
 
     candiesSpeed = candies[i].y += 2; // SPEED :)
 
     if (candies[i].y > canvas.height) {
       candies[i] = {
         x: Math.random() * canvas.width,
-        y: Math.random() * (canvas.height / 3),
+        y: Math.random() * (canvas.height / 4),
       };
 
       if (candies[i].x < canvas.width) {
         candies[i] = {
           x: Math.random() * canvas.width,
-          y: Math.random() * (canvas.height / 3),
+          y: Math.random() * (canvas.height / 4),
         };
       }
     }
@@ -173,9 +180,11 @@ function animate() {
   //_______________________MOVEMENT OF THE GIRL_________________________
   if (isMovingRight && girlPosRight + girl.width < canvas.width) {
     girlPosRight += 20;
+    runSoundEFX.play();
   }
   if (isMovingLeft && girlPosRight > 0) {
     girlPosRight -= 20;
+    runSoundEFX.play()
   }
 
   //______________________DRAWING FORGROUND AND SCORE _________________________
@@ -184,9 +193,12 @@ function animate() {
   ctx.font = "22px Pacifico";
   ctx.fillText(`Score: ${score}`, 20, canvas.height - 20);
 
-  if (candies.x == floorHieght) {
+  //______________________DRAWING FORGROUND AND SCORE _________________________
+  for (let i = 0; i < candies.length; i++) {
+  if (candies[i].y + candies.height > floorHieght) {
     isGameOver == true;
   }
+ }
 
   //______________________REQUEST ANIMATION FRAME JS FUNCTION_________________________
 
@@ -196,6 +208,7 @@ function animate() {
     ctx.fillText(`Your Score is : ${score}`, 20, canvas.height - 20); //Show Score
     startPage.style.display = "none"; //hide the start page
     gamePage.style.display = "none"; //hide the game page
+    finalScore.textContent = `Your score is: ${score}`
   } else {
     intervalId = requestAnimationFrame(animate); // playing game
     gameOverPage.style.display = "none"; // hide the game over page
@@ -207,36 +220,42 @@ window.addEventListener("load", () => {
   animate();
   girlMoving();
   gameOverPage.style.display = "none";
+  startPage.style.display = 'block'
+  gamePage.style.display = 'none'
+  
 
   //_______________________CLICK TO RESTART________________________________
   startBtn.addEventListener("click", () => {
     start();
+    startSoundEFX.play()
   });
 
   //_______________________CLICK TO RESTART________________________________
   restartBtn.addEventListener("click", () => {
     restart();
+    restartSoundEFX.play()
   });
 
   //_______________________KEYDOWN MOVEMENT________________________________
   function girlMoving() {
     document.addEventListener("keydown", (arrowKeyPress) => {
       if (arrowKeyPress.code == "ArrowRight") {
-        isMovingRight = true;
-        isMovingLeft = false;
-        console.log("moving ->");
+        isMovingRight = true
+        isMovingLeft = false
+       
       }
       if (arrowKeyPress.code == "ArrowLeft") {
-        isMovingRight = false;
-        isMovingLeft = true;
-        console.log("moving <-");
+        isMovingRight = false
+        isMovingLeft = true
+        console.log("moving <-")
       }
-    });
+    })
   }
 
   //_______________________KEY UP STOP MOVEMENT________________________________
   document.addEventListener("keyup", () => {
-    isMovingRight = false;
-    isMovingLeft = false;
-  });
-});
+    isMovingRight = false
+    isMovingLeft = false
+    runSoundEFX.pause()
+  })
+})

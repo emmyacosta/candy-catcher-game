@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +13,7 @@
   <body>
     <section id="splashscreen-page">
       <div id="start-div">
-        <h1 class="rainbowtext">Welcome to Candy Cacther</h1>
+        <h1 class="rainbowtext">Welcome to Candy Catcher</h1>
         <br />
         <p class="ptext">
           Candylina needs your help! <br />
@@ -46,6 +45,9 @@
           Play again to continue the adventure. <br />
         </p>
         <img src="/images/deadgirl.png" width=30%> 
+        </div>
+        <p id="scoredisplay" class="scoretext"></p>
+        <div>
       </div>
       
       <button id="restart" class="rainbowtextbuttton">Restart Game</button>
@@ -54,9 +56,9 @@
     <div id="controlbuttons">
      
         <p class="ptext"></p>
-        <img src="/images/LeftArrow.png"> 
-        <img src="/images/RightArrow.png"> &nbsp;&nbsp;
-        <img src="/images/Sound.png" id="audio" onclick="musicPlay()">
+        <img id="leftArrowimg" src="/images/LeftArrow.png"> 
+        <img id="leftRight" src="/images/RightArrow.png"> &nbsp;&nbsp;
+        <img id="soundmg" src="/images/Sound.png" id="audio" onclick="musicPlay()">
         
         <audio id="music">
             <source src="/music/gamethem.mp3">
@@ -72,73 +74,3 @@
     <script src="index.js"></script>
   </body>
 </html>
-=======
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- connecting your CSS files -->
-    <link href="style.css" rel="stylesheet">
-    <!-- connecting your FONT files -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <title>Candy Cathcer Game </title>
-</head>
-
-<body>
-    <section id="pregame">
-        <div id="splashscreen">
-            <h1 class="rainbowtext"> Welcome to Candy Cacther</h1><br>
-            <p class="ptext">
-                Candylina needs your help! <br>
-                She is stuck in Candy World The only way out it through the passage in the Bridge of
-                Trolls. <br>
-                In order to get back home she must pay a candy toll to the evil trolls. <br>
-                She needs catch as many candies as she can, by moving the left & right arrow key. <br>
-                Hopefully with enough candies she make it back home.<br>
-                Good Luck!<br>
-            </p>
-            <div>
-            <button id="start" class="rainbowtextbuttton">Restart Game</button>
-            <button id="start" class="inverse">Start Game</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="gameplay">
-        <div id="gamestart_div">
-            <canvas id="gamecanvas" width="1024" height="768"></canvas>
-        </div>
-    </section>
-
-    <section id="gameend">
-        <div id="gameover_div">
-            <h1 class="rainbowtext">Game Over</h1><br>
-            <p class="ptext">
-                Better Luck next time! <br>
-                Play again to continue the <br>
-            </p>
-        </div>
-        <button id="restart" class="rainbowtextbuttton">Restart Game</button>
-    </section>
-
-
-
-    <button id="soundon" class="myButton">Sound On/Off</button>
-    </span>
-    <audio controls>
-        <source src="/music/Kim Lightyear - Find Me In The Dark (Without Drums Version).mp3" type="audio/ogg">
-        <source src="/music/Kim Lightyear - Find Me In The Dark (Without Drums Version).mp3" type="audio/mpeg">
-    </audio>
-    <span>
-        <p class="ptext"></p>
-        <img src="/images/LeftArrow.png"> &nbsp;&nbsp;
-        <img src="/images/RightArrow.png"> &nbsp;&nbsp;
-        <img src="/images/Sound.png" id="#audio">
-    </span>
-    </div>
-    <script src="index.js"></script>
-</body>
-
-</html>
->>>>>>> 73a32dfd8e89bfface5e5b5cb9aa153d23233c77
