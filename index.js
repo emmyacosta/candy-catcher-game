@@ -195,7 +195,7 @@ function animate() {
 
   //______________________DRAWING FORGROUND AND SCORE _________________________
   for (let i = 0; i < candies.length; i++) {
-  if (candies[i].y + candies.height > floorHieght) {
+  if (candies[i].y + candiesPink.height > floorHieght) {
     isGameOver == true;
   }
  }
