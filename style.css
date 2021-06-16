@@ -1,18 +1,32 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
   }
 
 .fontstyle {
     font-family: 'Pacifico', cursive;
 }
 
+div{
+  align-content: center;
+  align-items: center;
+}
+
 body{
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
   font-family: 'Pacifico', cursive;
+  background: #E999DA;
+  align-items: center;
+  align-content: center;
+  text-align: center;
 }
 
 .rainbowtext{
-  user-select: none;
+ 
+  font-family: 'Pacifico', cursive;
+  text-align: center;
   font-size: 82px;
   color: white;
   background: repeating-linear-gradient(-45deg, red 0%, yellow 7.14%, rgb(0,255,0) 14.28%,
@@ -20,7 +34,7 @@ body{
   background-size: 600vw 600vw;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  animation: slide 10s linear infinite forwards;
+  animation: slide 30s linear infinite forwards;
 }
 @keyframes slide {
   0%{
@@ -30,3 +44,105 @@ body{
     background-position-x: 600vw;
   }
 }
+
+.rainbowtextbuttton{
+  padding: 20px;
+  margin: 20px;
+  border:3px solid;
+  font-family: Arial, Helvetica, sans-serif
+  text-align: center;
+  font-size: 20px;
+  color: #18ab29;
+  background: repeating-linear-gradient(-45deg, red 0%, yellow 7.14%, rgb(0,255,0) 14.28%,
+              rgb(0,255,255) 21.4%, cyan 28.56%, blue 35.7%, magenta 42.84%, red 30%);
+  background-size: 600vw 600vw;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  animation: slide 30s linear infinite forwards;
+}
+@keyframes slide {
+  0%{
+    background-position-x: 0%;
+  }
+  100%{
+    background-position-x: 600vw;
+  }
+}
+.rainbowtextbuttton:hover {
+	background-color:#5cbf2a;
+}
+.rainbowtextbuttton:active {
+	position:relative;
+	top:1px;
+}
+
+
+#grad1 {
+    background: red;
+    background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet); /* Standard syntax (must be last) */
+}
+
+
+.ptext {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+  align-self: center;
+  font-size: 20 px;
+  color:#18ab29;
+}
+.gradtext {
+   
+    background: red;
+    background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet);
+    background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    
+}
+
+.rainbow-button {
+  
+  align-items:center;
+  justify-content:center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:transparent;
+  background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+  border-radius: 3px;
+  margin: 20px;
+  padding: 20px;
+ 
+  
+}
+
+canvas{
+  align-self: inherit;
+  flex-direction: column;
+  vertical-align: auto;
+  align-content: center;
+  border:3px solid  #18ab29;
+  margin: 20px;
+  
+}
+
+.myButton {
+	background-color: transparent;
+	border:3px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color: #18ab29;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+  margin: 20;
+	
+}
+ 
+  
+
+
