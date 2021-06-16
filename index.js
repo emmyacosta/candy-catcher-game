@@ -7,6 +7,8 @@ let startPage = document.querySelector("#splashscreen-page"); //START SPLASH SCR
 let gamePage = document.querySelector("#gameplay-page"); //CANVAS DIV
 let gameOverPage = document.querySelector("#game-over-page"); //END PAGE
 let finalScore = document.querySelector('#scoredisplay')
+let myAudio = document.getElementById("music");
+
 
 let ctx = canvas.getContext("2d");
 
@@ -108,8 +110,8 @@ function girlCatching() {
 
 //_______________________MUSIC_____________________________________
 function musicPlay() {
-  //ONE BUTTON FOR BOTH
-  let myAudio = document.getElementById("music");
+  
+ 
   if (myAudio.paused) {
     myAudio.play();
   } else {
@@ -120,7 +122,8 @@ function musicPlay() {
 //____________________START FUNCTION_____________________________________  WORKS
 function start() {
   startPage.style.display = 'none'
-  gamePage.style.display = ''
+  gamePage.style.display = 'block'
+  gameOverPage.style.display = 'none'
   animate()      
 }
 
@@ -128,6 +131,7 @@ function start() {
 
 function restart() {
   gameOverPage.style.display = 'none'
+  startPage.style.display = 'block'
   isGameOver = false
   girlPosRight = 0;
   girlPosDown = 599; // GIRL base position  START POSTITIO
@@ -140,6 +144,7 @@ function restart() {
   
 //_______________________ANIMATION_____________________________________
 function animate() {
+
   //_______________________BG VISUAL_____________________________________
   ctx.drawImage(bg, 0, 0); // static bg
 
@@ -207,8 +212,8 @@ function animate() {
     gameOverPage.style.display = 'block'
     startPage.style.display = 'none'
     gamePage.style.display = 'none'
-
     finalscore.textContent = `Your score is: ${score}`
+
   } else {
     intervalId = requestAnimationFrame(animate); // playing game
     gameOverPage.style.display = "none"; // hide the game over page
@@ -217,6 +222,7 @@ function animate() {
 
 //_______________________EVENT LISNTERS________________________________
 window.addEventListener("load", () => {
+  myAudio.play()
   animate();
   girlMoving();
   gameOverPage.style.display = "none";
@@ -247,7 +253,6 @@ window.addEventListener("load", () => {
       if (arrowKeyPress.code == "ArrowLeft") {
         isMovingRight = false
         isMovingLeft = true
-        console.log("moving <-")
       }
     })
   }
