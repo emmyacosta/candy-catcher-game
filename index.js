@@ -119,17 +119,16 @@ function musicPlay() {
 
 //____________________START FUNCTION_____________________________________  WORKS
 function start() {
-  startPage.style.display = "none";
-  gameOverPage.style.display = "none";
-  gamePage.style.display = 'block'
-  isGameOver = false;
+  startPage.style.display = 'none'
+  gamePage.style.display = ''
+  animate()      
 }
 
 //______________________RESTART FUNCTION_____________________
 
 function restart() {
-  gamePage.style.display = "none";
-  isGameOver = false;
+  gameOverPage.style.display = 'none'
+  isGameOver = false
   girlPosRight = 0;
   girlPosDown = 599; // GIRL base position  START POSTITIO
   score = 0;
@@ -153,7 +152,7 @@ function animate() {
     //ctx.drawImage(candiesBottle,candies[i].x + gap , candies[i].y );
     //ctx.drawImage(candiesBottle2,candies[i].x + gap , candies[i].y );
 
-    candiesSpeed = candies[i].y += 2; // SPEED :)
+    candiesSpeed = candies[i].y += 1; // SPEED :)
 
     if (candies[i].y > canvas.height) {
       candies[i] = {
@@ -196,7 +195,7 @@ function animate() {
   //______________________DRAWING FORGROUND AND SCORE _________________________
   for (let i = 0; i < candies.length; i++) {
   if (candies[i].y + candiesPink.height > floorHieght) {
-    isGameOver == true;
+    isGameOver = true;
   }
  }
 
@@ -205,10 +204,11 @@ function animate() {
   if (isGameOver) {
     //ENDS GAME
     cancelAnimationFrame(intervalId); // when the game is over
-    ctx.fillText(`Your Score is : ${score}`, 20, canvas.height - 20); //Show Score
-    startPage.style.display = "none"; //hide the start page
-    gamePage.style.display = "none"; //hide the game page
-    finalScore.textContent = `Your score is: ${score}`
+    gameOverPage.style.display = 'block'
+    startPage.style.display = 'none'
+    gamePage.style.display = 'none'
+
+    finalscore.textContent = `Your score is: ${score}`
   } else {
     intervalId = requestAnimationFrame(animate); // playing game
     gameOverPage.style.display = "none"; // hide the game over page
