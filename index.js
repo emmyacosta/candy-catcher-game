@@ -56,9 +56,9 @@ let restartSoundEFX = new Audio()
 restartSoundEFX.src = './music/zapsplat_human_child_girl_11_years_says_yay_001_19775.mp3'
 restartSoundEFX.volume = 0.2
 
-let myAudio = new Audio()
-myAudio.src = '/music/gamethem.mp3'
-myAudio.volume = 0.1
+let gameMusic = new Audio()
+gameMusic.src = '/music/gamethem.mp3'
+gameMusic.volume = 0.1
 
 //_______________________VARIABLES______________________________________
 const floorHieght = 708;
@@ -98,27 +98,27 @@ function girlCatching() {
   for (let i = 0; i < candies.length; i++) {
     //console.log("Get points");
 
-    if (
-      candies[i].y + candies[i].height >= girl.y &&
-      candies[i].x + candies[i].width < girlPosRight + girl.width &&
-      candies[i].x > girlPosRight) {
-      catchingSoundEFX.play()
-      score += 10;
-      candies[i].y = 2000;
-      candies[i].x = 2000;
-      //candiesSpeed = candies[i].y += 5
+    if ( candies[i].y + candiesPink.height >= girlPosDown &&
+      candies[i].x + candiesPink.width < girlPosRight + girl.width &&
+      candies[i].x > girlPosRight ) 
+      
+      {
+        catchingSoundEFX.play()
+        score += 10;
+        candies[i].y = 2000;
+        candies[i].x = 2000;
+        //candiesSpeed = candies[i].y += 5
+    
+      }
     }
-  }
-}
+  } 
 
 //_______________________MUSIC_____________________________________
 function musicPlay() {
-  
-  myAudio.play()
-  if (myAudio.paused) {
-    myAudio.play();
+  if (gameMusic.paused) {
+    gameMusic.play();
   } else {
-    myAudio.pause();
+    gameMusic.pause();
   }
 }
 
@@ -133,9 +133,9 @@ function start() {
 //______________________RESTART FUNCTION_____________________
 
 function restart() {
-  startPage.style.display = 'block'
+  startPage.style.display = 'none'
   gameOverPage.style.display = 'none'
-  gamePage.style.display = 'none'
+  gamePage.style.display = 'block'
   isGameOver = false
   girlPosRight = 0;
   girlPosDown = 599; // GIRL base position  START POSTITIO
@@ -156,7 +156,7 @@ function animate() {
   for (let i = 0; i < candies.length; i++) {
     let gap = Math.random() + 300
      
-    ctx.drawImage(candiesBlue,candies[i].x + gap , candies[i].y );
+    ctx.drawImage(candiesBlue,candies[i].x + gap, candies[i].y );
     ctx.drawImage(candiesPink, candies[i].x, candies[i].y);
     //ctx.drawImage(candiesBottle,candies[i].x + gap , candies[i].y );
     //ctx.drawImage(candiesBottle2,candies[i].x + gap , candies[i].y );
@@ -166,13 +166,13 @@ function animate() {
     if (candies[i].y > canvas.height) {
       candies[i] = {
         x: Math.random() * canvas.width,
-        y: Math.random() * (canvas.height / 4),
+        y: Math.random() * 100,
       };
 
       if (candies[i].x < canvas.width) {
         candies[i] = {
           x: Math.random() * canvas.width,
-          y: Math.random() * (canvas.height / 4),
+          y: Math.random() * 250,
         };
       }
     }
@@ -201,13 +201,12 @@ function animate() {
   ctx.font = "22px Pacifico";
   ctx.fillText(`Score: ${score}`, 20, canvas.height - 20);
 
-  //______________________DRAWING FORGROUND AND SCORE _________________________
+  //______________________GAME OVER _________________________
   for (let i = 0; i < candies.length; i++) {
-  if (candies[i].y + candiesPink.height > floorHieght) {
-    isGameOver = true;
+    if (candies[i].y + candiesPink.height > canvas.height - 60 && (candies[i].y + candiesPink.height < 2000)) {
+      isGameOver = true;
+   }
   }
- }
-
   //______________________REQUEST ANIMATION FRAME JS FUNCTION_________________________
 
   if (isGameOver) {
@@ -217,8 +216,7 @@ function animate() {
     startPage.style.display = 'none'
     gamePage.style.display = 'none'
    // finalscore.textContent = `Your score is: ${score}`
-
-  } else {
+    } else {
     intervalId = requestAnimationFrame(animate); // playing game
     gameOverPage.style.display = "none"; // hide the game over page
   }
@@ -226,45 +224,47 @@ function animate() {
 
 //_______________________EVENT LISNTERS________________________________
 window.addEventListener("load", () => {
-  startPage.style.display = 'block'
-  musicPlay()
-  animate();
-  girlMoving();
-  gameOverPage.style.display = "none";
-  gamePage.style.display = 'none'
-  
+      startPage.style.display = 'block'
+      musicPlay()
+      animate();
+      girlMoving();
+      gameOverPage.style.display = "none";
+      gamePage.style.display = 'none'
+      
 
-  //_______________________CLICK TO RESTART________________________________
-  startBtn.addEventListener("click", () => {
-    start();
-    startSoundEFX.play()
-  });
+      //_______________________CLICK TO RESTART________________________________
+      startBtn.addEventListener("click", () => {
+        start();
+        startSoundEFX.play()
+      });
 
-  //_______________________CLICK TO RESTART________________________________
-  restartBtn.addEventListener("click", () => {
-    restart();
-    restartSoundEFX.play()
-  });
+      //_______________________CLICK TO RESTART________________________________
+      restartBtn.addEventListener("click", () => {
+        restart();
+        restartSoundEFX.play()
+      });
 
-  //_______________________KEYDOWN MOVEMENT________________________________
-  function girlMoving() {
-    document.addEventListener("keydown", (arrowKeyPress) => {
-      if (arrowKeyPress.code == "ArrowRight") {
-        isMovingRight = true
-        isMovingLeft = false
-       
+      //_______________________KEYDOWN MOVEMENT________________________________
+      function girlMoving() {
+        document.addEventListener("keydown", (arrowKeyPress) => {
+          if (arrowKeyPress.code == "ArrowRight") {
+            isMovingRight = true
+            isMovingLeft = false
+            runSoundEFX.play()
+          }
+          if (arrowKeyPress.code == "ArrowLeft") {
+            isMovingRight = false
+            isMovingLeft = true
+            runSoundEFX.play()
+          }
+        })
       }
-      if (arrowKeyPress.code == "ArrowLeft") {
+
+      //_______________________KEY UP STOP MOVEMENT________________________________
+      document.addEventListener("keyup", () => {
         isMovingRight = false
-        isMovingLeft = true
-      }
-    })
-  }
+        isMovingLeft = false
+        runSoundEFX.pause()
+      })
 
-  //_______________________KEY UP STOP MOVEMENT________________________________
-  document.addEventListener("keyup", () => {
-    isMovingRight = false
-    isMovingLeft = false
-    runSoundEFX.pause()
-  })
-})
+    })
