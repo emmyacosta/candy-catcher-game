@@ -124,8 +124,8 @@ function musicPlay() {
 
 //____________________START FUNCTION_____________________________________  WORKS
 function start() {
-  startPage.style.display = 'block'
-  gamePage.style.display = 'none'
+  startPage.style.display = 'none'
+  gamePage.style.display = 'block'
   gameOverPage.style.display = 'none'
   animate()      
 }
@@ -216,7 +216,7 @@ function animate() {
     gameOverPage.style.display = 'block'
     startPage.style.display = 'none'
     gamePage.style.display = 'none'
-    finalscore.textContent = `Your score is: ${score}`
+   // finalscore.textContent = `Your score is: ${score}`
 
   } else {
     intervalId = requestAnimationFrame(animate); // playing game
