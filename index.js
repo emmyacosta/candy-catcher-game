@@ -7,7 +7,7 @@ let startPage = document.querySelector("#splashscreen-page"); //START SPLASH SCR
 let gamePage = document.querySelector("#gameplay-page"); //CANVAS DIV
 let gameOverPage = document.querySelector("#game-over-page"); //END PAGE
 let finalScore = document.querySelector('#scoredisplay')
-let myAudio = document.getElementById("music");
+
 
 
 let ctx = canvas.getContext("2d");
@@ -56,6 +56,9 @@ let restartSoundEFX = new Audio()
 restartSoundEFX.src = './music/zapsplat_human_child_girl_11_years_says_yay_001_19775.mp3'
 restartSoundEFX.volume = 0.2
 
+let myAudio = new Audio()
+myAudio.src = '/music/gamethem.mp3'
+myAudio.volume = 0.1
 
 //_______________________VARIABLES______________________________________
 const floorHieght = 708;
@@ -111,7 +114,7 @@ function girlCatching() {
 //_______________________MUSIC_____________________________________
 function musicPlay() {
   
- 
+  myAudio.play()
   if (myAudio.paused) {
     myAudio.play();
   } else {
@@ -121,8 +124,8 @@ function musicPlay() {
 
 //____________________START FUNCTION_____________________________________  WORKS
 function start() {
-  startPage.style.display = 'none'
-  gamePage.style.display = 'block'
+  startPage.style.display = 'block'
+  gamePage.style.display = 'none'
   gameOverPage.style.display = 'none'
   animate()      
 }
@@ -130,8 +133,9 @@ function start() {
 //______________________RESTART FUNCTION_____________________
 
 function restart() {
-  gameOverPage.style.display = 'none'
   startPage.style.display = 'block'
+  gameOverPage.style.display = 'none'
+  gamePage.style.display = 'none'
   isGameOver = false
   girlPosRight = 0;
   girlPosDown = 599; // GIRL base position  START POSTITIO
@@ -222,11 +226,11 @@ function animate() {
 
 //_______________________EVENT LISNTERS________________________________
 window.addEventListener("load", () => {
-  myAudio.play()
+  startPage.style.display = 'block'
+  musicPlay()
   animate();
   girlMoving();
   gameOverPage.style.display = "none";
-  startPage.style.display = 'block'
   gamePage.style.display = 'none'
   
 
