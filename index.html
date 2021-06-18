@@ -1,74 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"/>
 
-    <link href="style.css" rel="stylesheet" />
-    <title>Candy Cathcer Game</title>
-  </head>
-  <body>
-    <section id="splashscreen-page">
-      <div id="start-div">
-        <h1 class="rainbowtext">Welcome to Candy Catcher</h1>
-        <br />
-        <p class="ptext">
-          Candylina needs your help! <br />
-          She is stuck in Candy World The only way out it through the passage in
-          the Bridge of Trolls. <br />
-          In order to get back home she must pay a candy toll to the evil
-          trolls. <br />
-          She needs catch as many candies as she can, by moving the left & right
-          arrow key. <br />
-          Hopefully with enough candies she make it back home.<br />
-          Good Luck!<br />
-        </p>
-        <div>
-          <button id="start" class="rainbowtextbuttton">Start Game</button>
-        </div>
-      </div>
-    </section>
-    <section id="gameplay-page">
-      <div id="games_div">
-        <canvas id="gamecanvas" width="1024" height="768"></canvas>
-      </div>
-    </section>
-    <section id="game-over-page">
-      <div id="gameover-div">
-        <h1 class="rainbowtext">Game Over</h1>
-        <br />
-        <p class="ptext">
-          Better Luck next time! <br />
-          Play again to continue the adventure. <br />
-        </p>
-        <img src="/images/deadgirl.png" width=30%> 
-        </div>
-        <p id="final-score" class="scoretext"></p>
-        <div>
-      </div>
-      
-      <button id="restart" class="rainbowtextbuttton">Restart Game</button>
-    </section>
-    <section id="controls"></section>
-    <div id="controlbuttons">
-     
-        <p class="ptext"></p>
-        <img id="leftArrowimg" src="/images/LeftArrow.png"> 
-        <img id="leftRight" src="/images/RightArrow.png"> &nbsp;&nbsp;
-        <img id="soundmg" src="/images/Sound.png" id="audio" onclick="musicPlay()">
-        
-       <!--<audio id="music">
-            <source src="/music/gamethem.mp3">
-        </audio>--> 
-      
-      
-        
-          
-    
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  
+  <link href="style.css" rel="stylesheet" />
+  <title>Candy Cathcer Game</title>
+</head>
 
+<body>
+  <section id="splashscreen-page">
+    <div id="start-div">
+      <h1 class="rainbowtext">Welcome to Candy Catcher</h1>
+      <br />
+      <p class="ptext">
+        Candylina needs your help! <br />
+        She is stuck in Candy World The only way out it through the passage in
+        the Bridge of Trolls. <br />
+        In order to get back home she must pay a candy toll to the evil
+        trolls. <br />
+        She needs catch as many candies as she can, by moving the left & right
+        arrow key. <br />
+        Hopefully with enough candies she make it back home.<br />
+        Good Luck!<br />
+      </p>
+      <div>
+        <button id="start" class="rainbowtextbuttton">Start Game</button>
+      </div>
     </div>
-    
-    <script src="index.js"></script>
-  </body>
+  </section>
+  <section id="gameplay-page">
+    <div id="games_div">
+      <canvas id="gamecanvas" width="1024" height="768"></canvas>
+    </div>
+  </section>
+  <section id="game-over-page">
+    <div id="gameover-div">
+      <h1 class="rainbowtext">GAME OVER!!!</h1>
+      <p class="scoretext"><span id="finalscore" ></span> </span></p>
+      <p class="ptext">
+        Better Luck next time! <br />
+        Play again to continue the adventure. <br /> <br />
+        <!--<img src="/images/deadgirl.png" width=30%> <a href="https://imgbb.com/">-->
+        <img src="https://i.ibb.co/PGMBmcf/deadgirl.png" alt="deadgirl" width="30%" />
+      </p>
+      <div>
+        <button id="restart" class="rainbowtextbuttton">Restart Game</button>
+      </div>
+    </div>
+  </section>
+  
+  <script src="index.js"></script>
+</body>
+
 </html>

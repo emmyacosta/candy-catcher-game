@@ -22,15 +22,34 @@ body{
   align-content: center;
   text-align: center;
 }
+.ptext {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+  align-self: center;
+  font-size: 20 px;
+  color:#ED4344;
+}
+
+
+canvas{
+  align-self: inherit;
+  flex-direction: column;
+  vertical-align: auto;
+  align-content: center;
+  border:3px solid  #18ab29;
+  margin: 20px;
+  
+}
+
 
 .rainbowtext{
- 
   font-family: 'Pacifico', cursive;
+
   text-align: center;
   font-size: 82px;
   color: white;
-  background: repeating-linear-gradient(-45deg, red 0%, yellow 7.14%, rgb(0,255,0) 14.28%,
-              rgb(0,255,255) 21.4%, cyan 28.56%, blue 35.7%, magenta 42.84%, red 30%);
+  background: repeating-linear-gradient(-45deg, red 10%, #FAEEBB 7.14%, #64E6AA 14.28%,
+              rgb(0,255,255) 21.4%, #7ED6F7 28.56%, #4E91E2 35.7%, magenta 42.84%, #EA454A 30%);
   background-size: 600vw 600vw;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -49,6 +68,7 @@ body{
   padding: 20px;
   margin: 20px;
   border:3px solid;
+  border-radius: 30px;
   font-family: Arial, Helvetica, sans-serif
   text-align: center;
   font-size: 20px;
@@ -69,7 +89,7 @@ body{
   }
 }
 .rainbowtextbuttton:hover {
-	background-color:#5cbf2a;
+	background-color:#ED4344;
 }
 .rainbowtextbuttton:active {
 	position:relative;
@@ -77,72 +97,42 @@ body{
 }
 
 
+
+
+
 #grad1 {
-    background: red;
-    background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet); /* Standard syntax (must be last) */
+  background: red;
+  background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet); /* Standard syntax (must be last) */
 }
 
-
-.ptext {
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 20px;
-  align-self: center;
-  font-size: 20 px;
-  color:#18ab29;
-}
 .gradtext {
    
-    background: red;
-    background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet);
-    background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
-    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
-    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    
+  background: red;
+  background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet);
+  background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+  background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+  background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  
 }
 
 .rainbow-button {
-  
-  align-items:center;
-  justify-content:center;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color:transparent;
-  background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
-  border-radius: 3px;
-  margin: 20px;
-  padding: 20px;
- 
-  
-}
 
-canvas{
-  align-self: inherit;
-  flex-direction: column;
-  vertical-align: auto;
-  align-content: center;
-  border:3px solid  #18ab29;
-  margin: 20px;
-  
-}
+align-items:center;
+justify-content:center;
+font-family: Arial, Helvetica, sans-serif;
+background-color:transparent;
+background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+border-radius: 3px;
+margin: 20px;
+padding: 20px;
 
-.myButton {
-	background-color: transparent;
-	border:3px solid #18ab29;
-	display:inline-block;
-	cursor:pointer;
-	color: #18ab29;
-	font-family:Arial;
-	font-size:17px;
-	padding:16px 31px;
-	text-decoration:none;
-  margin: 20;
-	
-}
 
+}
 .scoretext{
   padding: 20px;
   margin: 20px;
