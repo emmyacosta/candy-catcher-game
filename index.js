@@ -118,15 +118,15 @@ function girlCatching() {
   }
 }
 
-/*_______________________MUSIC_____________________________________
+//_______________________MUSIC_____________________________________
 function musicPlay() {
   gameMusic.play();
-  if (gameMusic.paused) {
+  /*if (gameMusic.paused) {
     gameMusic.play();
   } else {
     gameMusic.pause();
-  }
-}*/
+  }*/
+}
 
 //____________________START FUNCTION_____________________________________  WORKS
 function start() {
@@ -139,18 +139,34 @@ function start() {
 //______________________RESTART FUNCTION_____________________
 
 function restart() {
-  startPage.style.display = "block";
-  gamePage.style.display = "none";
+  startPage.style.display = "none";
+  gamePage.style.display = "block";
   gameOverPage.style.display = "none";
   isGameOver = false;
   girlPosRight = 0;
   girlPosDown = 599; // GIRL base position  START POSTITIO
   score = 0;
+candies = [
+  // falling candies CANDIES ARRAY
+  {
+    x: Math.random() * canvas.width,
+    y: Math.random() * (canvas.height / 3),
+    width: 70,
+    height: 70,
+  },
+  {
+    x: Math.random() * canvas.width,
+    y: Math.random() * (canvas.height / 3),
+    width: 70,
+    height: 70,
+  },
+];
   start();
 }
 
 //_______________________ANIMATION_____________________________________
 function animate() {
+  musicPlay()
   //_______________________BG VISUAL_____________________________________
   ctx.drawImage(bg, 0, 0); // static bg
   ctx.drawImage(soundBtn, 20, 130); // sound button
@@ -210,7 +226,7 @@ function animate() {
   ctx.drawImage(fg, 0, canvas.height - 60);
   ctx.fillStyle = "#EC6467";
   ctx.font = "22px Pacifico";
-  ctx.fillText(`Score: ${score}`, 80, 45);
+  ctx.fillText(`Score: ${score}`, 75, 45);
 
   //______________________GAME OVER _________________________
   for (let i = 0; i < candies.length; i++) {
@@ -250,19 +266,19 @@ function animate() {
 
 //_______________________EVENT LISNTERS________________________________
 window.addEventListener("load", () => {
-  startPage.style.display = "block";
-  gameMusic.play();
+  startPage.style.display = "block";  // Show Start page
+  gameMusic.play(); 
   animate();
   girlMoving();
-  gameOverPage.style.display = "none";
-  gamePage.style.display = "none";
+  gameOverPage.style.display = "none"; //hide game over 
+  gamePage.style.display = "none"; //hide game 
 
    //_______________________CLICK TO RESTART________________________________
    soundBtn.addEventListener("click", () => {
-   
+  
     if (gameMusic.pause()) {
        gameMusic.play();
-      gameMusic.play();
+     
     } else {
       gameMusic.pause();
     }
