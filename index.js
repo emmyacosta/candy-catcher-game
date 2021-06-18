@@ -63,7 +63,7 @@ restartSoundEFX.src = "./music/zapsplat_human_child_girl_11_years_says_yay_001_1
 restartSoundEFX.volume = 0.2;
 
 let gameMusic = new Audio();
-gameMusic.src = "./music/house_party.mp3"
+gameMusic.src = "./music/music_orlamusic_Happy+003.mp3"
 gameMusic.volume = 0.1;
 
 let winMusic = new Audio();
